@@ -5,4 +5,4 @@ Use this sample when creating a four-stage pipeline in AWS CodePipeline while fo
 
 
 
-safd
+s
