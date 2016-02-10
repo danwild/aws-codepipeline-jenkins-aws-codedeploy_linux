@@ -6,15 +6,10 @@ require 'socket'
 
 class JenkinsSampleTest < MiniTest::Unit::TestCase
   def setup
-    uri_params = {
-      :host => ENV['TEST_IP_ADDRESS'] || 'localhost',
-      :port => (ENV['TEST_PORT'] || '80').to_i,
-      :path => '/index.html'
-    }
-    @webpage = Net::HTTP.get(URI::HTTP.build(uri_params))
+    @webpage = Net::HTTP.get(URI("http://#{ENV['TEST_IP_ADDRESS']}:8000/index.html"))
   end
 
   def test_congratulations
-    assert(@webpage =~ /Congratulations/)
+    assert(@webpage =~ /Congratulations!/)
   end
 end
